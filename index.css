@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+  }
+}
+
+/* =====================================================================
+   SOORAR ERP design system (Royal Blue #00529E, Orange #F1980A, Navy #0B1F3A)
+   Unlayered on purpose so it normalises the legacy module markup too.
+   ===================================================================== */
+.erp-app { font-family: 'Poppins', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+.erp-card { background: #fff; border: 1px solid #E3E8F0; border-radius: 16px; box-shadow: 0 1px 2px rgba(11, 31, 58, 0.04); }
+.erp-h3 { font-size: 15px; font-weight: 600; color: #0B1F3A; }
+.erp-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; font-weight: 600; color: #00529E; cursor: pointer; }
+.erp-link:hover { text-decoration: underline; }
+.erp-label { display: block; font-size: 13px; font-weight: 500; color: #334155; margin-bottom: 6px; }
+.erp-input { width: 100%; border: 1px solid #D5DCE6; border-radius: 12px; background: #fff; padding: 0.7rem 0.9rem; font-size: 15px; color: #0B1F3A; outline: none; transition: border-color .15s, box-shadow .15s; }
+.erp-input:focus { border-color: #00529E; box-shadow: 0 0 0 3px rgba(0, 82, 158, 0.15); }
+.erp-btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 12px; padding: 0.6rem 1rem; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: background .15s, box-shadow .15s, opacity .15s; white-space: nowrap; }
+.erp-btn:disabled { opacity: .6; cursor: wait; }
+.erp-btn-primary { background: #00529E; color: #fff; box-shadow: 0 1px 2px rgba(0, 82, 158, .25); }
+.erp-btn-primary:hover { background: #00447F; }
+.erp-btn-accent { background: #F1980A; color: #fff; }
+.erp-btn-accent:hover { background: #D9870A; }
+.erp-btn-ghost { background: #fff; color: #0B1F3A; border: 1px solid #D5DCE6; }
+.erp-btn-ghost:hover { background: #F4F6FA; }
+.erp-btn-danger { background: #fff; color: #BE123C; border: 1px solid #FECDD3; }
+.erp-btn-danger:hover { background: #FFF1F2; }
+.erp-empty { display: flex; align-items: center; justify-content: center; text-align: center; padding: 28px 16px; border: 1.5px dashed #D5DCE6; border-radius: 14px; color: #64748B; font-size: 13px; background: #FAFBFD; }
+
+/* Legacy module markup inside the ERP main area */
+.erp-app main input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=range]):not([type=color]),
+.erp-app main select,
+.erp-app main textarea {
+  border: 1px solid #D5DCE6;
+  border-radius: 10px;
+  background-color: #fff;
+  min-height: 40px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 14px;
+  color: #0B1F3A;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.erp-app main textarea { min-height: 80px; }
+.erp-app main input:focus, .erp-app main select:focus, .erp-app main textarea:focus { border-color: #00529E; box-shadow: 0 0 0 3px rgba(0, 82, 158, 0.14); }
+.erp-app main input[type=checkbox], .erp-app main input[type=radio] { accent-color: #00529E; width: 16px; height: 16px; }
+.erp-app main label { color: #475569; }
+.erp-app main .bg-white.border { border-color: #E3E8F0; }
+.erp-app main .bg-white[class*="rounded-["] { border-radius: 16px; }
+.erp-app main table { border-collapse: separate; border-spacing: 0; width: 100%; }
+.erp-app main table thead th { background: #F8FAFC; color: #64748B; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #E3E8F0; white-space: nowrap; }
+.erp-app main table tbody td { font-size: 13px; border-bottom: 1px solid #F1F4F8; }
+.erp-app main table tbody tr:last-child td { border-bottom: 0; }
+.erp-app main table tbody tr:hover td { background: #FAFBFD; }
+.erp-app main div:has(> table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.erp-app main h3 { letter-spacing: -0.01em; }
+.erp-app main button.rounded-full { border-radius: 12px; }
+@media (max-width: 767px) {
+  .erp-app main table { min-width: 620px; }
+  .erp-app main .p-6 { padding: 1rem; }
+  .erp-app main input:not([type=checkbox]):not([type=radio]), .erp-app main select, .erp-app main textarea { font-size: 16px; }
+}
