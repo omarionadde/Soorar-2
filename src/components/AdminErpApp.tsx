@@ -19,6 +19,8 @@ import { GalleryManager } from './erp/GalleryManager.tsx';
 import { BookingExtras } from './erp/BookingExtras.tsx';
 import { PhotoStrip } from './erp/PhotoStrip.tsx';
 import { ChangePasswordModal } from './erp/ChangePasswordModal.tsx';
+import { AdminInstallButton, AdminOfflineNotice } from './erp/AdminInstallButton.tsx';
+import { enableAdminPwa } from '../lib/adminPwa.ts';
 import {
   LayoutDashboard,
   Calendar,
@@ -101,6 +103,8 @@ type ErpModule =
 const NOT_APPROVED_MSG = 'Akoonkaaga lama ogolaan. Admin-ka SOORAR ha kuu fasaxo.';
 
 export const AdminErpApp: React.FC<AdminErpAppProps> = ({ lang, onExitAdmin, onRefreshPublic }) => {
+  // Admin-only PWA: manifest, theme/apple tags and the /admin-scoped service worker.
+  useEffect(() => enableAdminPwa(), []);
   const [fbUser, setFbUser] = useState<User | null>(null);
   const [staffSession, setStaffSession] = useState<{ token: string; user: any } | null>(() => {
     try {
@@ -496,6 +500,7 @@ export const AdminErpApp: React.FC<AdminErpAppProps> = ({ lang, onExitAdmin, onR
   if (!fbUser && !staffSession) {
     return (
       <div className="min-h-screen bg-[#F4F6FA] lg:grid lg:grid-cols-2">
+        <AdminOfflineNotice lang={lang} />
         <div className="hidden lg:flex flex-col justify-between bg-[#0B1F3A] text-white p-12 relative overflow-hidden">
           <div className="absolute inset-x-0 top-0 h-1.5 flex"><span className="w-1/4 bg-[#F1980A]" /><span className="flex-1 bg-[#00529E]" /></div>
           <img src="/brand/soorar-logo-white.png" alt="SOORAR" className="h-16 w-auto self-start" />
@@ -564,6 +569,7 @@ export const AdminErpApp: React.FC<AdminErpAppProps> = ({ lang, onExitAdmin, onR
                 ? 'Google waxaa loo oggol yahay oo keliya akoonnada uu Admin-ku ansixiyay.'
                 : 'Google sign-in only works for accounts the admin has approved.'}
             </p>
+            <AdminInstallButton lang={lang} variant="login" />
           </div>
         </div>
       </div>
@@ -979,6 +985,7 @@ export const AdminErpApp: React.FC<AdminErpAppProps> = ({ lang, onExitAdmin, onR
       </aside>
 
       <div className="flex-1 min-w-0 flex flex-col">
+        <AdminOfflineNotice lang={lang} />
         <header className="no-print sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200/80">
           <div className="h-16 px-3 sm:px-6 flex items-center gap-3">
             <button type="button" onClick={() => setNavOpen(true)} className="lg:hidden p-2 -ml-1 rounded-lg hover:bg-slate-100" aria-label="Menu">
@@ -1001,6 +1008,7 @@ export const AdminErpApp: React.FC<AdminErpAppProps> = ({ lang, onExitAdmin, onR
                 className="erp-input !pl-9 !py-2"
               />
             </div>
+            <AdminInstallButton lang={lang} variant="header" />
             <button type="button" onClick={() => fetchErpData()} title={so ? 'Cusboonaysii' : 'Refresh'} className="p-2.5 rounded-xl hover:bg-slate-100 text-slate-500 cursor-pointer">
               <RefreshCw className={`w-[18px] h-[18px] ${loadingData ? 'animate-spin text-[#00529E]' : ''}`} />
             </button>

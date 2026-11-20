@@ -1,0 +1,20 @@
+{
+  "id": "/admin",
+  "name": "SOORAR Admin",
+  "short_name": "SOORAR",
+  "description": "SOORAR maamulka iyo shaqaalaha – Admin & Staff",
+  "lang": "so",
+  "start_url": "/admin",
+  "scope": "/admin",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0151B9",
+  "background_color": "#0B1F3A",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "/admin-icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/admin-icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/admin-icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/admin-icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

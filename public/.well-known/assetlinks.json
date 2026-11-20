@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "so.soorar.admin",
+      "sha256_cert_fingerprints": ["88:9F:E2:4B:71:A4:79:9D:8C:CE:9B:5F:9F:FC:5F:06:C9:C9:DD:A6:6E:D5:D9:6A:4A:FB:E9:2D:D5:A2:85:79"]
+    }
+  }
+]
